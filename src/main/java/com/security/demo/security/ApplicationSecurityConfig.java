@@ -28,8 +28,8 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests() // http요청에 대해 인증 검사를 하겠다
-                .antMatchers("/" ,"index","/css/*","/js/*")
-                .permitAll()
+                .antMatchers("/" ,"index","/css/*","/js/*").permitAll()
+                .antMatchers("/api/**").hasRole(STUDENT.name())
                 .anyRequest() // 모든요청은
                 .authenticated() // 인증이 되어야한다.
                 .and() // 그리고
