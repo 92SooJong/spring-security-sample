@@ -24,6 +24,7 @@ public enum ApplicationUserRole {
         return permissions;
     }
 
+    // TODO - 무슨뜻인지 이해하기!
     public Set<SimpleGrantedAuthority> getGrantedAuthorities(){
         Set<SimpleGrantedAuthority> permissions = getPermissions().stream()
                 .map(permission -> new SimpleGrantedAuthority(permission.getPermission()))
