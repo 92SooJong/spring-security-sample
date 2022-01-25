@@ -43,9 +43,12 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authenticated() // 인증이 되어야한다.
                 .and() // 그리고
                 .httpBasic(); // 인증 메커니즘은 httpBasic을 따른다
-        // 이렇게하면 웹 브라우저에서 기본적으로 제공하는 인증 요청 팝업이 뜬다.
-        // 로그아웃 할 방법이 없음!
+
     }
+
+
+    // 이렇게하면 웹 브라우저에서 기본적으로 제공하는 인증 요청 팝업이 뜬다.
+    // 로그아웃 할 방법이 없음!
 
     @Override
     @Bean

@@ -10,6 +10,7 @@ import java.util.stream.Collectors;
 import static com.security.demo.security.ApplicationUserPermission.*;
 
 public enum ApplicationUserRole {
+    // 역할별로 권한을 부여한다
     STUDENT(Sets.newHashSet()),
     ADMIN(Sets.newHashSet(COURSE_READ,COURSE_WRITE,STUDENT_READ,STUDENT_WRITE)),
     ADMINTRAINEE(Sets.newHashSet(COURSE_READ,STUDENT_READ));
@@ -24,12 +25,12 @@ public enum ApplicationUserRole {
         return permissions;
     }
 
-    // TODO - 무슨뜻인지 이해하기!
+
     public Set<SimpleGrantedAuthority> getGrantedAuthorities(){
         Set<SimpleGrantedAuthority> permissions = getPermissions().stream()
                 .map(permission -> new SimpleGrantedAuthority(permission.getPermission()))
                 .collect(Collectors.toSet());
-        permissions.add(new SimpleGrantedAuthority("ROLE_"+ this.name()));
+        permissions.add(new SimpleGrantedAuthority("ROLE_"+ this.name())); // ROLE도 추가해서 넘긴다
         return permissions;
     }
 
