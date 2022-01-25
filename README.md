@@ -7,7 +7,7 @@
 # WebSecurityConfigurerAdapter의 configure
 - `WebSecurityConfigurerAdapter` 추상 클래스를 상속함으로써 사용자 요청을 처리할 수 있다.
 - `antMatchers`를 통해 리소스를 가져오고 `permitAll()`이나 `hasRole()`등을 호출함으로써 권한이나 역할에 따라 리소스 접근을 제어할 수 있다.
-- ![images/antMatchers1.PNG](images/antMatchers1.PNG)
+![images/antMatchers1.PNG](images/antMatchers1.PNG)
 
 
 # WebSecurityConfigurerAdapter의 userDetailsService
@@ -34,4 +34,10 @@
 
 # EnableGlobalMethodSecurity 어노테이션
 - 작성중...
+
+# CSRF
+## 이론
+
+## 실습
+- 
 
