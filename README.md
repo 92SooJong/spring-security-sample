@@ -60,3 +60,7 @@
 - 이후 사용자는 request시에 Session Id를 통해서 서버와 통신한다.
 - Session이 만료되면 로그아웃이 된다. ( 더이상 서버의 리소스에 접근이 불가능함. )
 - `formLogin()`을 통해 적용이 가능하다.
+- 기본적으로 Spring Security에서 Form Based Auth를 위한 화면을 제공해준다.
+- 로그인 페이지를 직접 만들고 싶다면 `loginPage` 메소드를 사용하면 된다.
+
+
