@@ -31,9 +31,9 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http    //.csrf().disable()
-                .csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
-                .and()
+        http    .csrf().disable()
+                //.csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+                //.and()
                 .authorizeRequests() // http요청에 대해 인증 검사를 하겠다
                 .antMatchers("/" ,"index","/css/*","/js/*").permitAll()
                 .antMatchers("/api/**").hasRole(STUDENT.name())
@@ -45,7 +45,8 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest() // 모든요청은
                 .authenticated() // 인증이 되어야한다.
                 .and() // 그리고
-                .httpBasic(); // 인증 메커니즘은 httpBasic을 따른다
+                //.httpBasic(); // 인증 메커니즘은 httpBasic을 따른다
+                .formLogin(); // 인증 메커니즘은 Form based Auth를 따른다.
 
     }
 

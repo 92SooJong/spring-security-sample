@@ -48,3 +48,15 @@
 ## 실습
 - 작성중  
 
+# Basic Auth
+- 인증 방식의 일종이며, 사용자가 request를 할때 Header에 `Authorization: Basic xxx` 형태로 셋팅된다.
+- 적용이 쉽고 빠르다는 장점이 있지만 로그아웃을 할수 없는 불편함이 있다.
+- 로그아웃은 _"더이상 서버의 리소스에 접근이 불가능함"_ 을 말한다.
+- `httpBasic()`을 통해 적용이 가능하다.
+
+# Form Based Auth
+- 대부분의 웹 사이트의 표준으로 사용중이다.
+- 로그인에 성공하면 Cookie에 Session Id를 담아서 Response한다.
+- 이후 사용자는 request시에 Session Id를 통해서 서버와 통신한다.
+- Session이 만료되면 로그아웃이 된다. ( 더이상 서버의 리소스에 접근이 불가능함. )
+- `formLogin()`을 통해 적용이 가능하다.
