@@ -33,11 +33,18 @@
 ![images/Role정의.PNG](images/Role정의.PNG)
 
 # EnableGlobalMethodSecurity 어노테이션
-- 작성중...
+- 작성중
 
 # CSRF
 ## 이론
+- Cross-Site Request Forgrey(사이트간 요청 위조)   
+- 공격자가 만든 링크를 클릭하는 순간 사용자가 의도하지 않은 요청을 정상 서버에 보냄.
+- 예를 들어 사용자가 은행 사이트에 로그인을 하고, 웹서핑 도중 공격 링크를 클릭하는 순간 사용자가 의도하지 않은 요청이 은행 사이트로 갈수 있다. 
+- 해결법으로는 정상 사이트에 로그인시 사용자에게 CSRF-Token을 부여하고, 해당 토큰을 가진 요청만 정상으로 간주하고 처리하도록 하면된다.
+- CSRF-Token은 난수이므로, 공격자가 패턴으로 유추가 불가능하다.
+- [CSRF공격 개념](https://www.osti.gov/servlets/purl/1639993)
+- [CSRF공격 대응 방법](https://stackhoarder.com/2019/08/19/laravel-%EA%B8%B0%EB%B3%B8-10-csrf-protection/)
 
 ## 실습
-- 
+- 작성중  
 
