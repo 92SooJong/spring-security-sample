@@ -47,7 +47,8 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and() // 그리고
                 //.httpBasic(); // 인증 메커니즘은 httpBasic을 따른다
                 .formLogin() // 인증 메커니즘은 Form based Auth를 따른다.
-                .loginPage("/login").permitAll(); // 나만의 로그인 페이지사용 하기
+                .loginPage("/login").permitAll() // 나만의 로그인 페이지사용 하기
+                .defaultSuccessUrl("/courses",true);
 
 
 
