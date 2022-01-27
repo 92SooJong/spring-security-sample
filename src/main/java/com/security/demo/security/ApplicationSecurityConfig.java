@@ -53,8 +53,15 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/courses",true)
                 .and()
                 .rememberMe()
-                .tokenValiditySeconds((int)TimeUnit.DAYS.toSeconds(21))
-                .key("somethingverysecured"); //  default 14일 이지만 21일로 기간을 늘렸다.
+                    .tokenValiditySeconds((int)TimeUnit.DAYS.toSeconds(21))
+                    .key("somethingverysecured")//  default 14일 이지만 21일로 기간을 늘렸다.
+                .and()
+                .logout()
+                    .logoutUrl("/logout")
+                    .clearAuthentication(true)
+                    .invalidateHttpSession(true)
+                    .deleteCookies("JSESSIONID", "remember-me")
+                    .logoutSuccessUrl("/login");
 
 
 
