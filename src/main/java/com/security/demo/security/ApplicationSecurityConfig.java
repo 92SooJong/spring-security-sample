@@ -49,12 +49,15 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and() // 그리고
                 //.httpBasic(); // 인증 메커니즘은 httpBasic을 따른다
                 .formLogin() // 인증 메커니즘은 Form based Auth를 따른다.
-                .loginPage("/login").permitAll() // 나만의 로그인 페이지사용 하기
-                .defaultSuccessUrl("/courses",true)
+                    .loginPage("/login").permitAll() // 나만의 로그인 페이지사용 하기
+                    .defaultSuccessUrl("/courses",true)
+                    .usernameParameter("username")
+                    .passwordParameter("password")
                 .and()
                 .rememberMe()
                     .tokenValiditySeconds((int)TimeUnit.DAYS.toSeconds(21))
                     .key("somethingverysecured")//  default 14일 이지만 21일로 기간을 늘렸다.
+                    .rememberMeParameter("remember-me")
                 .and()
                 .logout()
                     .logoutUrl("/logout")

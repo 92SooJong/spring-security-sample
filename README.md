@@ -63,4 +63,7 @@
 - 기본적으로 Spring Security에서 Form Based Auth를 위한 화면을 제공해준다.
 - 로그인 페이지를 직접 만들고 싶다면 `loginPage` 메소드를 사용하면 된다.
 
-
+# DB를 통한 사용자 인증
+- `WebSecurityConfigurerAdapter`의 `userDetailsService`메소드는 `UserDetailService` 타입을 반환해야한다.
+- `UserDetailService`는 인터페이스로서 이전까지는 `InMemoryUserDetailsManager` 구현체를 사용했다.
+- 하지만 이번엔 `InMemoryUserDetailsManager`의 또다른 구현체인 `JdbcDaoImpl`를 사용함으로써 DB를 통한 사용자 인증을 수행한다.
