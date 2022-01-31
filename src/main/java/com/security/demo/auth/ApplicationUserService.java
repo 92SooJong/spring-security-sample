@@ -1,5 +1,6 @@
 package com.security.demo.auth;
 
+import com.security.demo.domain.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,17 +12,18 @@ import org.springframework.stereotype.Service;
 public class ApplicationUserService implements UserDetailsService {
 
 
-    private final ApplicationUserDao applicationUserDao;
-
+    //private final ApplicationUserDao applicationUserDao;
     @Autowired
-    public ApplicationUserService(@Qualifier("fake") ApplicationUserDao applicationUserDao) {
-        this.applicationUserDao = applicationUserDao;
-    }
+    UserRepository userRepository;
+
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return applicationUserDao.selectApplicationUserByUsername(username)
-                .orElseThrow(() ->
-                        new UsernameNotFoundException(String.format("username %s not found!",username)));
+
+        //ApplicationUser applicationUser = new ApplicationUser();
+
+        //userRepository.findByUserName(username);
+        // TODO - 작성하기
+        return null;
     }
 }
