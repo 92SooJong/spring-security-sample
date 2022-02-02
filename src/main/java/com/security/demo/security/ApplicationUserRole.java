@@ -1,6 +1,7 @@
 package com.security.demo.security;
 
 import com.google.common.collect.Sets;
+import com.security.demo.auth.ApplicationUser;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
@@ -25,7 +26,6 @@ public enum ApplicationUserRole {
         return permissions;
     }
 
-
     public Set<SimpleGrantedAuthority> getGrantedAuthorities(){
         Set<SimpleGrantedAuthority> permissions = getPermissions().stream()
                 .map(permission -> new SimpleGrantedAuthority(permission.getPermission()))
@@ -33,5 +33,8 @@ public enum ApplicationUserRole {
         permissions.add(new SimpleGrantedAuthority("ROLE_"+ this.name())); // ROLE도 추가해서 넘긴다
         return permissions;
     }
+
+
+
 
 }
