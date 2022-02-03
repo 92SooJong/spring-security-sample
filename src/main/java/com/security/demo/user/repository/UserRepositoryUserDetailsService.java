@@ -1,6 +1,5 @@
-package com.security.demo.domain.user;
+package com.security.demo.user.repository;
 
-import com.security.demo.auth.ApplicationUser;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -9,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserRepositoryUserDetailsService implements UserDetailsService {
 
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     public UserRepositoryUserDetailsService(UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -17,7 +16,6 @@ public class UserRepositoryUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        ApplicationUser byUserName = userRepository.findByUserName(username);
-        return byUserName;
+        return userRepository.findByUsername(username);
     }
 }

@@ -1,14 +1,12 @@
-package com.security.demo.security;
+package com.security.demo.config.security;
 
 import com.google.common.collect.Sets;
-import com.security.demo.auth.ApplicationUser;
-import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static com.security.demo.security.ApplicationUserPermission.*;
+import static com.security.demo.config.security.ApplicationUserPermission.*;
 
 public enum ApplicationUserRole {
     // 역할별로 권한을 부여한다
