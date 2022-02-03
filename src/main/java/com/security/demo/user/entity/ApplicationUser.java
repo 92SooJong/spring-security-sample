@@ -16,7 +16,6 @@ import java.util.Collection;
 
 @Entity
 @Data
-@NoArgsConstructor
 public class ApplicationUser implements UserDetails {
 
 
@@ -34,6 +33,8 @@ public class ApplicationUser implements UserDetails {
         this.role = role;
     }
 
+    public ApplicationUser() {
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

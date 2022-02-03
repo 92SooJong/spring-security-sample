@@ -1,7 +1,9 @@
 package com.security.demo.config.security;
 
 import com.security.demo.user.repository.UserRepositoryUserDetailsService;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -34,8 +36,8 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests() // http요청에 대해 인증 검사를 하겠다
                 .antMatchers("/" ,"index","/**","/css/*","/js/*").permitAll()
                 .antMatchers("/api/**").hasRole(STUDENT.name())
-                //.anyRequest() // 모든요청은
-                //.authenticated() // 인증이 되어야한다.
+                .anyRequest() // 모든요청은
+                .authenticated() // 인증이 되어야한다.
                 .and() // 그리고
                 //.httpBasic(); // 인증 메커니즘은 httpBasic을 따른다
                 .formLogin() // 인증 메커니즘은 Form based Auth를 따른다.
@@ -63,23 +65,23 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
-        auth.inMemoryAuthentication()
-                .withUser("linda")
-                .password(passwordEncoder.encode("123123"))
-                .authorities(ADMIN.name());
+//        auth.inMemoryAuthentication()
+//                .withUser("linda")
+//                .password(passwordEncoder.encode("123123"))
+//                .authorities(ADMIN.name());
 
-        //auth.authenticationProvider(daoAuthenticationProvider());
+        auth.authenticationProvider(daoAuthenticationProvider());
 
     }
 
-//    @Bean
-//    public DaoAuthenticationProvider daoAuthenticationProvider(){
-//        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
-//        provider.setPasswordEncoder(passwordEncoder);
-//        provider.setUserDetailsService(userRepositoryUserDetailsService);
-//        return provider;
-//
-//    }
+    @Bean
+    public DaoAuthenticationProvider daoAuthenticationProvider(){
+        DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
+        provider.setPasswordEncoder(passwordEncoder);
+        provider.setUserDetailsService(userRepositoryUserDetailsService);
+        return provider;
+
+    }
 
 
 }
