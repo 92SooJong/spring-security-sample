@@ -34,15 +34,15 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 //.csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
                 //.and()
                 .authorizeRequests() // http요청에 대해 인증 검사를 하겠다
-                .antMatchers("/" ,"index","/**","/css/*","/js/*").permitAll()
-                .antMatchers("/api/**").hasRole(STUDENT.name())
+                .antMatchers("/resouces/login/**","/css/*","/js/*").permitAll() // 인증이 필요없는 화면 리소스
+                .antMatchers("/login/**", "/registration/**").permitAll() // 인증이 필요없는 API
+                //.antMatchers("/api/**").hasRole(STUDENT.name())//
                 .anyRequest() // 모든요청은
                 .authenticated() // 인증이 되어야한다.
-                .and() // 그리고
-                //.httpBasic(); // 인증 메커니즘은 httpBasic을 따른다
+                .and()
                 .formLogin() // 인증 메커니즘은 Form based Auth를 따른다.
                     .loginPage("/login").permitAll() // 나만의 로그인 페이지사용 하기
-                    .defaultSuccessUrl("/courses",true)
+                    .defaultSuccessUrl("/courses",true)// 로그인 성공시 이동
                     .usernameParameter("username")
                     .passwordParameter("password")
                 .and()
@@ -55,11 +55,9 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                     .logoutUrl("/logout")
                     .clearAuthentication(true)
                     .invalidateHttpSession(true)
-                    .deleteCookies("JSESSIONID", "remember-me")
-                    .logoutSuccessUrl("/login");
-
-
-
+                    .deleteCookies("JSESSIONID", "remember-me") // 로그아웃하면 2개의 쿠키를 삭제한다
+                    .logoutSuccessUrl("/login"); // 로그아웃 성공시 로그인 페이지로 이동
+        
     }
 
     @Override

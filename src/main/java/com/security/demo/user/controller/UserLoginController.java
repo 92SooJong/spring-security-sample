@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/")
-public class TemplateController {
+public class UserLoginController {
 
     @GetMapping("login")
     public String getLoginView(){
-        return "login";
+        return "/login/login";
     }
 
     @GetMapping("courses")
