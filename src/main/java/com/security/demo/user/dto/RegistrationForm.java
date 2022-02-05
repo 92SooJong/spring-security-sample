@@ -28,7 +28,7 @@ public class RegistrationForm {
 
     public ApplicationUser toUser(PasswordEncoder passwordEncoder) {
 
-        return new ApplicationUser(username, passwordEncoder.encode(password),"ROLE_ADMIN");
+        return new ApplicationUser(username, passwordEncoder.encode(password),"USER");
     }
 
 }

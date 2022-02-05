@@ -13,9 +13,6 @@ public class UserLoginController {
         return "/login/login";
     }
 
-    @GetMapping("courses")
-    public String getCourses(){
-        return "courses";
-    }
+
 
 }

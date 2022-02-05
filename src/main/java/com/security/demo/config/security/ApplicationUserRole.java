@@ -10,7 +10,7 @@ import static com.security.demo.config.security.ApplicationUserPermission.*;
 
 public enum ApplicationUserRole {
     // 역할별로 권한을 부여한다
-    STUDENT(Sets.newHashSet()),
+    USER(Sets.newHashSet()),
     ADMIN(Sets.newHashSet(COURSE_READ,COURSE_WRITE,STUDENT_READ,STUDENT_WRITE)),
     ADMINTRAINEE(Sets.newHashSet(COURSE_READ,STUDENT_READ));
 

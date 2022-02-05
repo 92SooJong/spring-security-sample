@@ -19,6 +19,7 @@ public class UserRegistrationController {
         this.passwordEncoder = passwordEncoder;
     }
 
+
     @GetMapping
     public String registerForm(Model model) {
         model.addAttribute("registerForm" , new RegistrationForm());
@@ -27,7 +28,7 @@ public class UserRegistrationController {
 
     @PostMapping
     public String processRegistration(@ModelAttribute RegistrationForm form) {
-        userRepo.save(form. toUser(passwordEncoder));
+        userRepo.save(form.toUser(passwordEncoder));
         return "redirect:/login";
     }
 
