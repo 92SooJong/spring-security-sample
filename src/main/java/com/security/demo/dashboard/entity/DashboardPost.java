@@ -2,12 +2,11 @@ package com.security.demo.dashboard.entity;
 
 import com.sun.istack.NotNull;
 
-import javax.annotation.Nullable;
 import javax.persistence.*;
 
 @Entity
 @Table(name = "TABLE_DASHBOARD_POST")
-public class DashBoardPost {
+public class DashboardPost {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
