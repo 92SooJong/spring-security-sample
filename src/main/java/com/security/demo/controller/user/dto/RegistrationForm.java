@@ -1,7 +1,6 @@
-package com.security.demo.user.dto;
+package com.security.demo.controller.user.dto;
 
-import com.security.demo.user.entity.ApplicationUser;
-import lombok.Data;
+import com.security.demo.domain.user.ApplicationUser;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 //@Data

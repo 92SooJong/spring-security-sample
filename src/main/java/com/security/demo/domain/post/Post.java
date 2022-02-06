@@ -1,12 +1,18 @@
-package com.security.demo.dashboard.entity;
+package com.security.demo.domain.post;
 
 import com.sun.istack.NotNull;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 
 @Entity
-@Table(name = "TABLE_DASHBOARD_POST")
-public class DashboardPost {
+@NoArgsConstructor
+public class Post {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,6 +25,15 @@ public class DashboardPost {
     private String title;
 
     private String content;
+
+    @Builder
+    public Post(Long id, String writer, String title, String content) {
+        this.id = id;
+        this.writer = writer;
+        this.title = title;
+        this.content = content;
+    }
+
 
     public Long getId() {
         return id;

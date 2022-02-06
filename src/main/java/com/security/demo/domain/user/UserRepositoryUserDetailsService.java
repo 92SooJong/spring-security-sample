@@ -1,4 +1,4 @@
-package com.security.demo.user.repository;
+package com.security.demo.domain.user;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

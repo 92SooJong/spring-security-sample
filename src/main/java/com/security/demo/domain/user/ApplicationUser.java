@@ -1,4 +1,4 @@
-package com.security.demo.user.entity;
+package com.security.demo.domain.user;
 
 import com.security.demo.config.security.ApplicationUserRole;
 import lombok.AccessLevel;
@@ -16,7 +16,6 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name = "TABLE_APPLICATION_USER")
 public class ApplicationUser implements UserDetails {
 
 

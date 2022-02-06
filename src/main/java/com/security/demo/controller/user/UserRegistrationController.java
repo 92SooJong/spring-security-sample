@@ -1,14 +1,14 @@
-package com.security.demo.user.controller;
+package com.security.demo.controller.user;
 
-import com.security.demo.user.repository.UserRepository;
-import com.security.demo.user.dto.RegistrationForm;
+import com.security.demo.domain.user.UserRepository;
+import com.security.demo.controller.user.dto.RegistrationForm;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/registration")
+@RequestMapping("/user-registration")
 public class UserRegistrationController {
 
     private UserRepository userRepo;
@@ -23,7 +23,7 @@ public class UserRegistrationController {
     @GetMapping
     public String registerForm(Model model) {
         model.addAttribute("registerForm" , new RegistrationForm());
-        return "/login/registration";
+        return "/login/userRegistration";
     }
 
     @PostMapping

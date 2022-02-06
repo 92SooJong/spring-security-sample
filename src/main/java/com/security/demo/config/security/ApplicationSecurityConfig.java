@@ -1,6 +1,6 @@
 package com.security.demo.config.security;
 
-import com.security.demo.user.repository.UserRepositoryUserDetailsService;
+import com.security.demo.domain.user.UserRepositoryUserDetailsService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -11,8 +11,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import java.util.concurrent.TimeUnit;
-
-import static com.security.demo.config.security.ApplicationUserRole.*;
 
 @Configuration
 @EnableWebSecurity
@@ -36,13 +34,13 @@ public class ApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
                 //.csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
                 .authorizeRequests() // http요청에 대해 인증 검사를 하겠다
                 .antMatchers("/resources/templates/login/**","/css/*","/js/*").permitAll() // 인증이 필요없는 화면 리소스
-                .antMatchers("/login/**", "/registration/**").permitAll() // 인증이 필요없는 API
+                .antMatchers("/login/**", "/user-registration/**").permitAll() // 인증이 필요없는 API
                 .anyRequest() // 모든요청은
                 .authenticated() // 인증이 되어야한다.
                 .and()
                 .formLogin() // 인증 메커니즘은 Form based Auth를 따른다.
                     .loginPage("/login").permitAll() // 나만의 로그인 페이지사용 하기
-                    .defaultSuccessUrl("/dashboard",true)// 로그인 성공시 이동
+                    .defaultSuccessUrl("/post/list",true)// 로그인 성공시 이동
                     .usernameParameter("username")
                     .passwordParameter("password")
                 .and()
