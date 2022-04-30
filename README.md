@@ -1,3 +1,7 @@
+# 개요
+- 유튜버 Amigoscode의 `Spring Security | FULL COURSE`를 수강하며 수행한 실습을 정리한 저장소
+- [https://www.youtube.com/watch?v=her_7pa0vrg](https://www.youtube.com/watch?v=her_7pa0vrg)
+
 # 적용하기
 - `org.springframework.boot:spring-boot-starter-security` 의존성을 추가하면 Spring Security를 사용할 수 있다. 
 - 의존성을 추가하기만 해도 로그인을 위한 화면을 제공해준다.
@@ -45,8 +49,6 @@
 - [CSRF공격 개념](https://www.osti.gov/servlets/purl/1639993)
 - [CSRF공격 대응 방법](https://stackhoarder.com/2019/08/19/laravel-%EA%B8%B0%EB%B3%B8-10-csrf-protection/)
 
-## 실습
-- 작성중  
 
 # Basic Auth
 - 인증 방식의 일종이며, 사용자가 request를 할때 Header에 `Authorization: Basic xxx` 형태로 셋팅된다.
